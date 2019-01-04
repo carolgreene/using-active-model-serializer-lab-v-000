@@ -2817,3 +2817,22 @@ ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=30):
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (43.1ms)
+
+
+Started GET "/products/21" for 73.75.41.119 at 2019-01-04 00:34:25 +0000
+Cannot render console from 73.75.41.119! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 21]]
+  Rendered products/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/22.json" for 73.75.41.119 at 2019-01-04 00:34:30 +0000
+Cannot render console from 73.75.41.119! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProductsController#show as JSON
+  Parameters: {"id"=>"22"}
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 22]]
+[active_model_serializers]   [1m[36mOrder Load (0.1ms)[0m  [1mSELECT "orders".* FROM "orders" INNER JOIN "ordered_products" ON "orders"."id" = "ordered_products"."order_id" WHERE "ordered_products"."product_id" = ?[0m  [["product_id", 22]]
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (2.68ms)
+Completed 200 OK in 56ms (Views: 53.6ms | ActiveRecord: 0.3ms)
